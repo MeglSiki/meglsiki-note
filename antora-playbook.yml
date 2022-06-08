@@ -1,13 +1,12 @@
 site:
-  title: Antora Docs
-  start_page: component-b::index.adoc
+  title: MeglSiki Note
+  start_page: main-note::index.adoc
 content:
   sources:
-  - url: https://gitlab.com/antora/demo/demo-component-a.git
-    branches: HEAD
-  - url: https://gitlab.com/antora/demo/demo-component-b.git
-    branches: [v2.0, v1.0]
-    start_path: docs
+    - url: https://github.com/MeglSiki/note-main
+      branches: HEAD
+      start_path: documents
+
 ui:
   bundle:
     url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
