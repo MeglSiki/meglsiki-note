@@ -9,11 +9,6 @@ jobs:
   build-and-push:
     runs-on: ubuntu-latest
 
-    env:
-      OTHER_REPO: meglsiki/meglsiki-portal
-      GIT_USER_EMAIL: megl000.dev@gmail.com
-      GIT_USER_NAME: MeglSiki
-
     steps:
       - name: Checkout main
         uses: actions/checkout@v3
@@ -32,10 +27,10 @@ jobs:
 
       - name: Clone other repo
         run: |
-          git clone https://github.com/${OTHER_REPO}.git /tmp/other-repo
+          git clone https://github.com/meglsiki/meglsiki-portal.git /tmp/other-repo
           cd /tmp/other-repo
-          git config user.email "${GIT_USER_EMAIL}"
-          git config user.name "${GIT_USER_NAME}"
+          git config user.email "megl000.dev@gmail.com"
+          git config user.name "MeglSiki"
           git checkout main
 
       - name: Copy build output to other repo
@@ -46,4 +41,4 @@ jobs:
           cd /tmp/other-repo
           git add .
           git commit -m "Auto commit by meglsiki-note"
-          git push https://github.com/${OTHER_REPO}.git HEAD:main
+          git push https://github.com/meglsiki/meglsiki-portal.git HEAD:main
