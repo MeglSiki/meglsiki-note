@@ -34,7 +34,9 @@ jobs:
           ref: main
 
       - name: Copy build output to other repo
-        run: mv -r build/site tmp/other-repo/public/notes
+        run: |
+          rm -rf tmp/other-repo/public/notes
+          mv build/site tmp/other-repo/public/notes
 
       - name: Commit and push changes
         run: |
