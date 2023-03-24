@@ -26,23 +26,21 @@ jobs:
           npm run build
 
       - name: Clone other repo
+        uses: actions/checkout@v3
         with:
+          repository: MeglSiki/meglsiki-portal
           token: ${{ secrets.ACCESS_TOKEN }}
-        run: |
-          git clone https://github.com/MeglSiki/meglsiki-portal.git /tmp/other-repo
-          cd /tmp/other-repo
-          git config user.email "megl000.dev@gmail.com"
-          git config user.name "MeglSiki"
-          git checkout main
+          path: /tmp/other-repo
 
       - name: Copy build output to other repo
         run: cp -r build/site /tmp/other-repo/public/notes
 
       - name: Commit and push changes
-        with:
-          token: ${{ secrets.ACCESS_TOKEN }}
         run: |
           cd /tmp/other-repo
+          git remote set-url origin https://${{ secrets.ACCESS_TOKEN }}@github.com/MeglSiki/meglsiki-portal
+          git config user.email "megl000.dev@gmail.com"
+          git config user.name "MeglSiki"
           git add .
           git commit -m "Auto commit by meglsiki-note"
-          git push https://github.com/MeglSiki/meglsiki-portal.git HEAD:main
+          git push https://${{ secrets.ACCESS_TOKEN }}@github.com/MeglSiki/meglsiki-portal.git HEAD:main
