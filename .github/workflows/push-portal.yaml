@@ -30,7 +30,7 @@ jobs:
           git remote set-url origin https://${{ secrets.ACCESS_TOKEN }}@github.com/MeglSiki/meglsiki-portal
           git config user.email "megl000.dev@gmail.com"
           git config user.name "MeglSiki"
-          git clone https://github.com/MeglSiki/meglsiki-portal.git /tmp/other-repo
+          git clone https://${{ secrets.ACCESS_TOKEN }}@github.com/MeglSiki/meglsiki-portal.git /tmp/other-repo
           cd /tmp/other-repo
           git checkout main
 
