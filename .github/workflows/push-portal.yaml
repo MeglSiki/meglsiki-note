@@ -26,8 +26,10 @@ jobs:
           npm run build
 
       - name: Clone other repo
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
         run: |
-          git clone https://${{ secrets.ACCESS_TOKEN }}@github.com/MeglSiki/meglsiki-portal.git /tmp/other-repo
+          git clone https://github.com/MeglSiki/meglsiki-portal.git /tmp/other-repo
           cd /tmp/other-repo
           git config user.email "megl000.dev@gmail.com"
           git config user.name "MeglSiki"
@@ -37,8 +39,10 @@ jobs:
         run: cp -r build/site /tmp/other-repo/public/notes
 
       - name: Commit and push changes
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
         run: |
           cd /tmp/other-repo
           git add .
           git commit -m "Auto commit by meglsiki-note"
-          git push https://${{ secrets.ACCESS_TOKEN }}@github.com/MeglSiki/meglsiki-portal.git HEAD:main
+          git push https://github.com/MeglSiki/meglsiki-portal.git HEAD:main
