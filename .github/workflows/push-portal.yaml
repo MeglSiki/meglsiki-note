@@ -27,7 +27,7 @@ jobs:
 
       - name: Clone other repo
         run: |
-          git clone https://github.com/meglsiki/meglsiki-portal.git /tmp/other-repo
+          git clone https://github.com/MeglSiki/meglsiki-portal.git /tmp/other-repo
           cd /tmp/other-repo
           git config user.email "megl000.dev@gmail.com"
           git config user.name "MeglSiki"
@@ -41,4 +41,4 @@ jobs:
           cd /tmp/other-repo
           git add .
           git commit -m "Auto commit by meglsiki-note"
-          git push https://github.com/meglsiki/meglsiki-portal.git HEAD:main
+          git push https://github.com/MeglSiki/meglsiki-portal.git HEAD:main
