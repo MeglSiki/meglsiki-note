@@ -22,7 +22,6 @@ jobs:
 
       - name: Build
         run: |
-          mkdir /tmp/other-repo
           npm i
           npm run build
 
@@ -31,14 +30,14 @@ jobs:
         with:
           repository: MeglSiki/meglsiki-portal
           token: ${{ secrets.ACCESS_TOKEN }}
-          path: /tmp/other-repo
+          path: tmp/other-repo
 
       - name: Copy build output to other repo
-        run: cp -r build/site /tmp/other-repo/public/notes
+        run: cp -r build/site tmp/other-repo/public/notes
 
       - name: Commit and push changes
         run: |
-          cd /tmp/other-repo
+          cd tmp/other-repo
           git remote set-url origin https://${{ secrets.ACCESS_TOKEN }}@github.com/MeglSiki/meglsiki-portal
           git config user.email "megl000.dev@gmail.com"
           git config user.name "MeglSiki"
