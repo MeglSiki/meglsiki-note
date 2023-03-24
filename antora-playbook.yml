@@ -5,6 +5,7 @@ content:
   sources:
     - url: https://github.com/MeglSiki/note-modeling
       branches: HEAD
+      start_path: documents
     - url: https://github.com/MeglSiki/note-main
       branches: HEAD
       start_path: documents
